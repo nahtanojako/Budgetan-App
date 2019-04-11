@@ -1,0 +1,236 @@
+// variables
+$primary: #28b9b5
+$secondary: #ff5049
+$white: #fff
+$black: #000
+
+// reset styles
+*
+  padding: 0
+  margin: 0 
+  box-sizing: border-box
+
+*::before, *::after
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  width: 100%
+
+body
+  font-family: 'Lato', sans-serif
+  font-weight: 300
+  line-height: 1.5
+
+
+// top container
+.top
+  background: linear-gradient(to bottom, rgba($black, 0.5), rgba($black, 0.5)), url('../bg.png') no-repeat center center
+  background-size: cover
+  text-align: center
+  color: $white
+  padding: 0.5rem 0
+
+  .budget
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    &__title
+      font-size: 1.3rem
+      margin-bottom: 1rem
+
+    &__value
+      font-size: 3rem
+      margin-bottom: 1rem
+
+    &__income, &__expenses
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 25rem  
+      padding: 0.7rem 1rem
+      &--text
+        text-transform: uppercase
+      .right
+        display: flex
+        justify-content: space-between
+        width: auto
+
+    &__income .budget__income--value,
+    &__expenses .budget__expenses--value
+      font-weight: 700
+      font-size: 1.2rem
+      margin-right: 1rem
+
+    &__income .budget__income--percent,
+    &__expenses .budget__expenses--percent
+      background: rgba($white, 0.3)
+      border-radius: 3px
+      font-size: 0.8rem
+      padding: 0.2rem 0.3rem
+      vertical-align: middle
+      align-self: center
+      width: 2.7rem
+      text-align: center
+
+    &__income
+      background: $primary
+      margin-bottom: 0.5rem
+      &--percent
+        opacity: 0
+
+    &__expenses
+      background: $secondary
+
+
+// bottom container
+.bottom
+  .add
+    background: rgba($black, 0.07)
+    padding: 1.5rem 1rem
+    
+    &__container
+      display: flex
+      align-items: center
+      justify-content: center
+      max-width: 768px
+      margin: 0 auto
+      @media(max-width: 768px)
+        flex-direction: column
+
+      & > *
+        margin: 0 0.3rem
+        padding: 0.8rem
+        border-radius: 5px
+        border: 1px solid rgba($black, 0.2)
+        transition: 0.3s ease
+        font-size: 1.1rem
+        &::placeholder
+          color: rgba($black, 0.4)
+        @media(max-width: 768px)
+          margin-bottom: 0.5rem
+          width: 80%
+
+        &:focus
+          border-color: $primary
+          outline: none
+    &__type
+      color: rgba($black, 0.4)
+      option
+        color: $black
+
+    &__description
+      flex: 1
+
+    &__value
+      flex-basis: 2rem
+
+    &__btn
+      background: $primary
+      color: $white
+      cursor: pointer
+      transition: 0.3s ease
+      &:hover
+        background: lighten($primary, 10%)
+      &:active
+        background: darken($primary, 10%)
+
+  .container  
+    display: flex
+    justify-content: center
+    margin: 2rem auto 0 auto
+    max-width: 1200px
+    @media(max-width: 768px)
+      flex-direction: column
+
+    & > *
+      flex-basis: 50%
+      padding: 0 2rem
+
+    .income, .expenses
+      @media(max-width: 768px)
+        margin-bottom: 2.5rem
+      &__title
+        margin-bottom: 1.5rem
+        font-size: 1.5rem
+        text-transform: uppercase
+
+    .income__title
+      color: $primary
+
+    .income .item__value
+      color: $primary
+
+    .expenses 
+      .item__value
+        color: $secondary
+      .item__percent
+        background: rgba($secondary, 0.3)
+        color: rgba($secondary, 0.8)
+        font-size: 0.7rem
+        padding: 0.2rem 0.3rem
+        border-radius: 3px
+        margin-left: 1rem
+        vertical-align: middle
+
+      .item__delete--btn
+        border-color: $secondary
+        color: $secondary
+
+    .expenses__title
+      color: $secondary
+
+    .item, .right
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+    .item
+      padding: 0.7rem 0.5rem
+      border-top: 1px solid rgba($black, 0.1)
+      overflow: hidden
+      &:nth-child(even)
+        background: rgba($black, 0.05)
+      &:last-child
+        border-bottom: 1px solid rgba($black, 0.1)
+
+      &:hover .item__delete
+        right: 0
+
+      &:hover .item__value
+        margin-right: 1.2rem
+
+      &__description
+        color: rgba($black, 0.7)
+        font-weight: 500
+        font-size: 1.1rem
+
+      &__value
+        font-weight: 500
+        margin-right: -1rem
+        transition: 0.3s ease
+        font-size: 1.1rem
+
+      &__delete
+        transition: 0.1s ease
+        position: relative
+        right: -2rem
+        &--btn
+          display: inline-block
+          width: 1.3rem
+          height: 1.3rem
+          border-radius: 50%
+          border: 1px solid $primary
+          color: $primary
+          background: none
+          cursor: pointer
+
+.red 
+  background: $secondary !important
+
+.red-focus:focus
+  border: 1px solid $secondary !important
+
+
+    
